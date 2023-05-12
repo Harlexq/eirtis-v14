@@ -1,0 +1,9 @@
+{
+    "davet": {
+        "davetembed": "**Beni Sunucuna Davet Etmek İçin Aşağıdaki Butona Tıkla**",
+        "davetbuton": "Davet Et"
+    },
+    "afk": {
+        "afksebep": "{{user}} Başarıyla `AFK` moduna geçiş yaptın\nSebep: **{{sebep}}**"
+    }
+}

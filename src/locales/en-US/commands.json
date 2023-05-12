@@ -1,0 +1,9 @@
+{
+    "davet": {
+        "davetembed": "**Click The Button Below To Invite Me To Your Server**",
+        "davetbuton": "Invite"
+    },
+    "afk": {
+        "afksebep": "{{user}} You have successfully switched to `AFK` mode\nReason: **{{sebep}}**"
+    }
+}
