@@ -4,7 +4,7 @@ const axios = require('axios');
 module.exports = {
   data: new SlashCommandBuilder()
     .setName("banner")
-    .setDescription("Etiketlenen Kullanıcının Veya Sizin Avatarınızı Gösterir")
+    .setDescription("Etiketlenen Kullanıcının Veya Sizin Bannerinizi Gösterir")
     .addMentionableOption(option =>
       option
         .setName("kişi")

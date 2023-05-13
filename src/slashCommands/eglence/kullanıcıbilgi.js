@@ -35,15 +35,15 @@ module.exports = {
     await interaction.reply({
       embeds: [embed.addFields({
         name: `Kullanıcı Bilgisi`, value: `
-**__\`Hesap Adı:\`__** ${üye}
-**__\`Kullanıcı ID:\`__** **\`${üye.id}\`**
+**__\`Hesap Adı:\`__** ${member}
+**__\`Kullanıcı ID:\`__** **\`${member.id}\`**
 **__\`Kuruluş Tarihi:\`__** <t:${Math.floor(member.user.createdTimestamp / 1000)}:R>
 `},
         {
           name: `Sunucu Bilgisi`, value: `
 **__\`Sunucu İsmi:\`__**: **\`${interaction.guild.name}\`**
-**__\`Katılım Tarihi:\`__** <t:${Math.floor(üye.joinedAt / 1000)}:R>
-**__\`Katılım Sırası:\`__** ${(interaction.guild.members.cache.filter(a => a.joinedTimestamp <= üye.joinedTimestamp).size).toLocaleString()}/${(interaction.guild.memberCount).toLocaleString()}
+**__\`Katılım Tarihi:\`__** <t:${Math.floor(member.joinedAt / 1000)}:R>
+**__\`Katılım Sırası:\`__** ${(interaction.guild.members.cache.filter(a => a.joinedTimestamp <= member.joinedTimestamp).size).toLocaleString()}/${(interaction.guild.memberCount).toLocaleString()}
 `})]
     });
   },

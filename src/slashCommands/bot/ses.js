@@ -1,5 +1,6 @@
-const { SlashCommandBuilder } = require('discord.js');
+const { SlashCommandBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('discord.js');
 const { joinVoiceChannel, getVoiceConnection } = require('@discordjs/voice');
+const db = require("nrc.db");
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -19,6 +20,21 @@ module.exports = {
                 .setDescription('Botu bağlı olduğu ses kanalından çıkarır')
         ),
     async execute(interaction, client, embed) {
+
+        const rows = new ActionRowBuilder()
+            .addComponents(
+                new ButtonBuilder()
+                    .setStyle(ButtonStyle.Link)
+                    .setLabel("Premium Üye Ol")
+                    .setURL("https://discord.com/users/801069133810237491")
+            );
+
+        const premiumUserID = "801069133810237491";
+
+        if (interaction.user.id !== premiumUserID && !db.get(`premium_${interaction.user.id}`)) {
+            return interaction.reply({ content: "Bu komutu sadece premium üyeler kullanabilir sende premium üye olmak istersen aşağıdaki butona basarak iletişime geçebilirsin", components: [rows] });
+        }
+
         const voiceChannel = interaction.member.voice.channel;
         const subCommand = interaction.options.getSubcommand();
 

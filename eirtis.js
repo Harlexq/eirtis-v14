@@ -5,6 +5,8 @@ const settings = require("./src/configs/settings.json")
 client.commands = new Collection();
 client.aliases = new Collection();
 client.slashcommands = new Collection();
+client.invites = new Collection();
+client.guildPrefixes = new Map();
 require("./src/handlers/eventHandler");
 require("./src/handlers/mongoHandler");
 const { REST } = require('@discordjs/rest');
@@ -46,7 +48,7 @@ const rest = new REST({ version: '9' })
     try {
         console.log('[EİRTİS] Slash Komutları Yükleniyor.');
         await rest.put(
-            Routes.applicationCommands(settings.BotClientID),
+            Routes.applicationCommands(settings.botClientID),
             { body: slashcommands },
         ).then(() => {
             console.log('[EİRTİS] Slash Komutları yüklendi.');

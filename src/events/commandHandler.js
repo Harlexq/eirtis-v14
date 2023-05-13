@@ -4,7 +4,7 @@ const settings = require("../configs/settings.json");
 const cooldowns = new Map();
 
 module.exports = async (message) => {
-    const prefixes = settings.prefix;
+    const prefixes = [settings.prefix, client.guildPrefixes.get(message.guild.id)].flat();
     const prefix = prefixes.find(p => message.content.startsWith(p));
     if (!prefix) return;
 

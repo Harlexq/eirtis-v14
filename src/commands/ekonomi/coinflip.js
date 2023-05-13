@@ -8,7 +8,7 @@ module.exports = {
         category: "ekonomi",
     },
 
-    run: async (client, message, args) => {
+    run: async (client, message, args, embed) => {
         if (!message.guild) return;
 
         const user = message.mentions.users.first() || message.author;
@@ -34,6 +34,8 @@ module.exports = {
         if (betAmount > coin) {
             return message.reply(`Yeterli coinin yok! Hesabında ${coin} coin var.`);
         }
+        let msg = await message.reply(`Coinflip oynanıyor, lütfen bekleyin...`);
+        await new Promise((resolve) => setTimeout(resolve, 2000));
 
         const result = Math.floor(Math.random() * 2);
         const outcome = result === 0 ? "Kazandın" : "Kaybettin";
@@ -42,13 +44,25 @@ module.exports = {
         if (result === 0) {
             winnings = betAmount * 2;
             db.add(`coin_${user.id}`, winnings);
-            message.reply(`Tebrikler! ${outcome} ve ${winnings} coin kazandın!`);
+            msg.edit({
+                embeds: [embed.setDescription(`
+                    **Tebrikler ${outcome} Ve ${winnings} Coin Kazandın**
+
+                    Şu anda toplam **${db.fetch(`coin_${user.id}`)}** coine sahipsin
+                    `)
+                ]
+            });
         } else {
             db.add(`coin_${user.id}`, -betAmount);
-            message.reply(`Maalesef ${outcome} ve ${betAmount} coin kaybettin.`);
+            msg.edit({
+                embeds: [embed.setDescription(`
+                **Maalesef ${outcome} Ve ${betAmount} Coin Kaybettin**
+
+                Şu anda toplam **${db.fetch(`coin_${user.id}`)}** coine sahipsin
+            `)
+                ]
+            });
         }
-
         db.set(`lastBet_${user.id}`, Date.now());
-
     },
 };

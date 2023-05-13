@@ -7,7 +7,7 @@
         "/yardım & e.yardım",
         "e.yardım & /yardım"
     ],
-    "BotClientID": "1099740758623395860",
+    "botClientID": "1099740758623395860",
     "mongoUrl": "mongodb+srv://harlex:harlex@cluster0.4wfms.mongodb.net/?retryWrites=true&w=majority",
     "youtubeAPI": "AIzaSyD-zk2FPEQa4NHmpcp8mUTnxYfty-qWYUc",
     "googleApiKey": "AIzaSyCUyIe-ZETQoOuXc30BY1Frg7EjcE8YIpk",

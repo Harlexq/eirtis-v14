@@ -1,7 +1,10 @@
 const settings = require("../configs/settings.json");
+const { joinVoiceChannel } = require('@discordjs/voice');
 const { ActivityType } = require("discord.js");
 const client = global.client;
-module.exports = () => {
+const db = require("nrc.db");
+
+module.exports = async () => {
 
     setInterval(() => {
         const eirtis = settings.botDurum[Math.floor(Math.random() * settings.botDurum.length)];
@@ -13,6 +16,19 @@ module.exports = () => {
             }]
         });
     }, 5000);
+
+    const voiceConnectionData = db.get(`voiceConnection_${client.guilds.cache.first().id}`);
+    if (!voiceConnectionData) return;
+
+    try {
+        const voiceConnection = await joinVoiceChannel({
+            channelId: voiceConnectionData.channelId,
+            guildId: voiceConnectionData.guildId,
+            adapterCreator: client.guilds.cache.first().voiceAdapterCreator,
+            selfDeaf: true,
+        });
+    } catch (error) {
+    }
 
     client.guilds.cache.forEach((guild) => {
         if (guild.memberCount < 20) {
