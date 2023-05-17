@@ -53,6 +53,12 @@ module.exports = {
                     guildId: interaction.guild.id,
                     adapterCreator: interaction.guild.voiceAdapterCreator,
                 });
+
+                db.set(`voiceConnection_${interaction.guild.id}`, {
+                    channelId: voiceConnection.joinConfig.channelId,
+                    guildId: voiceConnection.joinConfig.guildId,
+                });
+
                 interaction.reply(`Bot, ${targetVoiceChannel} kanalına başarıyla bağlandı!`);
             } catch (error) {
                 interaction.reply(`Bir hata oluştu: ${error.message}`);
@@ -62,6 +68,7 @@ module.exports = {
                 const connection = getVoiceConnection(interaction.guild.id);
                 if (connection) {
                     await connection.destroy();
+                    db.delete(`voiceConnection_${interaction.guild.id}`);
                     interaction.reply('Bot, kanaldan ayrıldı!');
                 } else {
                     interaction.reply('Bot zaten bir ses kanalında değil!');
@@ -70,5 +77,11 @@ module.exports = {
                 interaction.reply(`Bir hata oluştu: ${error.message}`);
             }
         }
+
+        client.once('ready', () => {
+
+        });
+
+
     },
 };

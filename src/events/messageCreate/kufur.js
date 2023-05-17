@@ -1,21 +1,21 @@
 const db = require("nrc.db")
-const settings = require("../configs/settings.json");
+const settings = require("../../configs/settings.json");
 
 module.exports = async (message) => {
 
     if (!message.guild || message.author.bot) return;
 
-    const enabled = db.fetch(`reklam_${message.guild.id}`);
+    const enabled = db.fetch(`küfür_${message.guild.id}`);
     if (!enabled) return;
 
-    const reklamengel = settings.reklam;
+    const küfürengel = settings.küfür;
     const content = message.content.toLowerCase();
 
-    for (let i = 0; i < reklamengel.length; i++) {
-        if (content.includes(reklamengel[i])) {
+    for (let i = 0; i < küfürengel.length; i++) {
+        if (content.includes(küfürengel[i])) {
             message.delete();
             message.channel.send(
-                `${message.author} Lütfen Reklam Yapmayınız Reklam Engelleme Sistemi Açık`
+                `${message.author} Lütfen Küfür Etmeyin Küfür Engelleme Sistemi Açık`
             );
             return;
         }

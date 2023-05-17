@@ -1,6 +1,6 @@
 const db = require("nrc.db")
 const settings = require("../../configs/settings.json")
-const { ActionRowBuilder, ButtonBuilder, ButtonStyle } = require("discord.js")
+const { ActionRowBuilder, ButtonBuilder, ButtonStyle, PermissionsBitField } = require("discord.js")
 
 
 module.exports = {
@@ -23,7 +23,7 @@ module.exports = {
         if (!kontrolkanal) return message.reply(`Jail Log Ayarlanmamış. Ayarlamak için **${settings.prefix}jail-ayar log #Kanal**`)
         if (!kontroljailytkrol) return message.reply(`Jail Yetkilisi Rolünü Ayarlayınız. Ayarlamak için **${settings.prefix}jail-ayar jail-yetkilisi @Yetkili** `)
 
-        if (![kontroljailytkrol].some(role => message.member.roles.cache.get(role)) && (!message.member.permissions.has("ADMINISTRATOR")))
+        if (![kontroljailytkrol].some(role => message.member.roles.cache.get(role)) && (!message.member.permissions.has(PermissionsBitField.Flags.Administrator)))
             return message.reply({ content: `Bu Komudu Sadece Ayarlanan **Jail Yetkilisi** Veya Sunucuyu Yönet Yetkisine Sahip Olan Kişiler Kullanabilir` }).then((e) => setTimeout(() => { e.delete(); }, 5000));
 
         let user = message.mentions.users.first();

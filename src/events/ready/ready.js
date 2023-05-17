@@ -1,8 +1,8 @@
-const settings = require("../configs/settings.json");
-const { joinVoiceChannel } = require('@discordjs/voice');
+const settings = require("../../configs/settings.json");
 const { ActivityType } = require("discord.js");
-const client = global.client;
+const { joinVoiceChannel } = require('@discordjs/voice');
 const db = require("nrc.db");
+const client = global.client;
 
 module.exports = async () => {
 
@@ -16,19 +16,6 @@ module.exports = async () => {
             }]
         });
     }, 5000);
-
-    const voiceConnectionData = db.get(`voiceConnection_${client.guilds.cache.first().id}`);
-    if (!voiceConnectionData) return;
-
-    try {
-        const voiceConnection = await joinVoiceChannel({
-            channelId: voiceConnectionData.channelId,
-            guildId: voiceConnectionData.guildId,
-            adapterCreator: client.guilds.cache.first().voiceAdapterCreator,
-            selfDeaf: true,
-        });
-    } catch (error) {
-    }
 
     client.guilds.cache.forEach((guild) => {
         if (guild.memberCount < 20) {
@@ -60,7 +47,35 @@ module.exports = async () => {
     console.log(`Emoji Sayısı: ${client.emojis.cache.size}`)
     console.log(`Kanal Sayısı: ${client.channels.cache.size}`)
 
+    const guilds = client.guilds.cache;
+
+    guilds.forEach(guild => {
+        const voiceConnectionData = db.get(`voiceConnection_${guild.id}`);
+        if (!voiceConnectionData) return;
+
+        const voiceChannel = guild.channels.cache.get(voiceConnectionData.channelId);
+        if (!voiceChannel) return;
+
+        try {
+            joinVoiceChannel({
+                channelId: voiceChannel.id,
+                guildId: guild.id,
+                adapterCreator: guild.voiceAdapterCreator,
+            });
+        } catch (error) {
+            console.error(`Ses kanalına bağlanırken bir hata oluştu: ${error}`);
+        }
+    });
+
+    client.guilds.cache.forEach(guild => {
+        const prefix = db.get(`prefix_${guild.id}`);
+        if (prefix) {
+            client.guildPrefixes.set(guild.id, prefix);
+        }
+    });
+
 }
+
 module.exports.conf = {
     name: "ready"
 }

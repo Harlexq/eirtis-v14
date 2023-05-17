@@ -1,4 +1,5 @@
 const db = require("nrc.db");
+const { PermissionsBitField } = require('discord.js');
 
 module.exports = {
         conf: {
@@ -11,7 +12,7 @@ module.exports = {
         run: async (client, message, args, embed) => {
                 if (!message.guild) return;
 
-                if (!message.member.permissions.has("KICK_MEMBERS") && !message.member.permissions.has("BAN_MEMBERS")) {
+                if (!message.member.permissions.has(PermissionsBitField.Flags.KickMembers) && !message.member.permissions.has(PermissionsBitField.Flags.BanMembers)) {
                         return message.reply("Uyarı yetkiniz yok.");
                 }
 

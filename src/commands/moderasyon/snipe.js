@@ -14,7 +14,7 @@ module.exports = {
     run: async (client, message, args) => {
         if (!message.guild) return;
 
-        const snipes = db.get(`${message.channel.id}.snipes`) || [];
+        const snipes = db.get(`${message.channel.id}_snipes`) || [];
         if (snipes.length === 0) {
             return message.reply({
                 content: 'Herhangi bir silinmiş mesaj bulunamadı!',

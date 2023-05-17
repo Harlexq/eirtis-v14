@@ -1,5 +1,5 @@
 const { joinVoiceChannel, getVoiceConnection } = require('@discordjs/voice');
-const { ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('discord.js');
+const { ActionRowBuilder, ButtonBuilder, ButtonStyle, PermissionsBitField } = require('discord.js');
 const db = require("nrc.db");
 
 module.exports = {
@@ -27,10 +27,12 @@ module.exports = {
             return message.reply({ content: "Bu komutu sadece premium üyeler kullanabilir sende premium üye olmak istersen aşağıdaki butona basarak iletişime geçebilirsin", components: [rows] });
         }
 
-        if (!message.member.permissions.has("ADMINISTRATOR"))
+        if (!message.member.permissions.has(PermissionsBitField.Flags.Administrator))
             return message.reply(
                 "Bu Komudu Kullanabilmek için sunucuyu yönet yetkisine sahip olmanız gerekmekte."
             );
+
+        if (!args[0]) return message.reply(`Doğru Kullanımı; **e.ses ekle #kanal/çıkar**`)
 
         const voiceChannel = message.member.voice.channel;
 

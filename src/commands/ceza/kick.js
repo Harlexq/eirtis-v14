@@ -1,3 +1,4 @@
+const { PermissionsBitField } = require("discord.js");
 module.exports = {
         conf: {
                 aliases: ["kick"],
@@ -8,7 +9,7 @@ module.exports = {
 
         run: async (client, message, args, embed) => {
                 if (!message.guild) return;
-                if (!message.member.permissions.has("KICK_MEMBERS")) return message.reply("Üyeleri Atma Yetkiniz Yok.")
+                if (!message.member.permissions.has(PermissionsBitField.Flags.KickMembers)) return message.reply("Üyeleri Atma Yetkiniz Yok.")
 
                 let user = message.mentions.users.first();
                 let sebep = args[1]

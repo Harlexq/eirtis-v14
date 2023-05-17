@@ -1,3 +1,5 @@
+const { PermissionsBitField } = require('discord.js');
+
 module.exports = {
     conf: {
         aliases: ["yavaşmod", "yavasmod", "yavaşmode"],
@@ -8,7 +10,7 @@ module.exports = {
 
     run: async (client, message, args) => {
         if (!message.guild) return;
-        if (!message.member.permissions.has('ADMINISTRATOR')) {
+        if (!message.member.permissions.has(PermissionsBitField.Flags.Administrator)) {
             message.reply({ content: `Yetkin bulunmamakta dostum.` }).then((e) => setTimeout(() => { e.delete(); }, 5000));
             return;
         }

@@ -8,7 +8,7 @@ module.exports = {
         .setName('snipe')
         .setDescription('En Son Silinen Mesajı Gösterir'),
     async execute(interaction, client, embed) {
-        const snipes = db.get(`${interaction.channel.id}.snipes`) || [];
+        const snipes = db.get(`${interaction.channel.id}_snipes`) || [];
         if (snipes.length === 0) {
             return interaction.reply({
                 content: 'Herhangi bir silinmiş mesaj bulunamadı!',

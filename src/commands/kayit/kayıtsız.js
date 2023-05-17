@@ -1,4 +1,4 @@
-const { ActionRowBuilder, ButtonBuilder, ButtonStyle } = require("discord.js");
+const { ActionRowBuilder, ButtonBuilder, ButtonStyle, PermissionsBitField } = require("discord.js");
 const db = require("nrc.db")
 
 module.exports = {
@@ -21,7 +21,7 @@ module.exports = {
         let kayıtsizİsim = db.fetch(`kayıt_kayıtsız_isim_${message.guild.id}`) || '• İsim | Yaş';
 
         if (!kayıt_ytk) return message.reply(`**Kayıt Yetkilisi** rolü ayarlanmamış.`)
-        if (![kayıt_ytk].some(role => message.member.roles.cache.get(role)) && (!message.member.permissions.has("ADMINISTRATOR")))
+        if (![kayıt_ytk].some(role => message.member.roles.cache.get(role)) && (!message.member.permissions.has(PermissionsBitField.Flags.Administrator)))
             return message.reply({ content: `Bu Komudu Sadece Ayarlanan **Mute Yetkilisi** Veya Sunucuyu Yönet Yetkisine Sahip Olan Kişiler Kullanabilir` }).then((e) => setTimeout(() => { e.delete(); }, 5000));
         if (!kayıt_erkek) return message.reply(`**Erkek** rolü ayarlanmamış.`)
         if (!kayıt_kız) return message.reply(`**Kız** rolü ayarlanmamış.`)

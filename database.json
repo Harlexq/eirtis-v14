@@ -1,14 +1,133 @@
 {
-    "hesap_801069133810237491": "Harlex",
-    "coin_801069133810237491": 1080,
-    "günlük_801069133810237491": "1684020362",
-    "lastBet_801069133810237491": 1683934522084,
-    "voiceConnection_1015882960806871070": {
-        "channelId": "1087297918601543680",
-        "guildId": "1015882960806871070"
+    "sunucuayarlar_1015882960806871070": {
+        "capsEngel": true
     },
-    "voiceConnection_1102544463856943115": {
-        "channelId": "1102595049876897903",
-        "guildId": "1102544463856943115"
+    "küfür_1015882960806871070": false,
+    "reklam_1015882960806871070": true,
+    "1087297576241483806_snipes": [
+        {
+            "content": "ananı",
+            "author": {
+                "id": "801069133810237491",
+                "bot": false,
+                "system": false,
+                "flags": 4194560,
+                "username": "Harlex",
+                "discriminator": "7969",
+                "avatar": "c52232a0533ea8976080943fbf0bad41",
+                "createdTimestamp": 1611060164645,
+                "defaultAvatarURL": "https://cdn.discordapp.com/embed/avatars/4.png",
+                "tag": "Harlex#7969",
+                "avatarURL": "https://cdn.discordapp.com/avatars/801069133810237491/c52232a0533ea8976080943fbf0bad41.webp",
+                "displayAvatarURL": "https://cdn.discordapp.com/avatars/801069133810237491/c52232a0533ea8976080943fbf0bad41.webp"
+            },
+            "createdAt": "2023-05-15T13:25:25.196Z",
+            "attachments": []
+        },
+        {
+            "content": "tamam aga sıkıntı yok ben çalışıyorum yoksa yardım ederdim",
+            "author": {
+                "id": "801069133810237491",
+                "bot": false,
+                "system": false,
+                "flags": 4194560,
+                "username": "Harlex",
+                "discriminator": "7969",
+                "avatar": "c52232a0533ea8976080943fbf0bad41",
+                "createdTimestamp": 1611060164645,
+                "defaultAvatarURL": "https://cdn.discordapp.com/embed/avatars/4.png",
+                "tag": "Harlex#7969",
+                "avatarURL": "https://cdn.discordapp.com/avatars/801069133810237491/c52232a0533ea8976080943fbf0bad41.webp",
+                "displayAvatarURL": "https://cdn.discordapp.com/avatars/801069133810237491/c52232a0533ea8976080943fbf0bad41.webp"
+            },
+            "createdAt": "2023-05-15T13:25:17.669Z",
+            "attachments": []
+        },
+        {
+            "content": "<@1001220573457813584> aga senden ricam en detaylı bi şekilde incelersen çok iyi olur ya",
+            "author": {
+                "id": "801069133810237491",
+                "bot": false,
+                "system": false,
+                "flags": 4194560,
+                "username": "Harlex",
+                "discriminator": "7969",
+                "avatar": "c52232a0533ea8976080943fbf0bad41",
+                "createdTimestamp": 1611060164645,
+                "defaultAvatarURL": "https://cdn.discordapp.com/embed/avatars/4.png",
+                "tag": "Harlex#7969",
+                "avatarURL": "https://cdn.discordapp.com/avatars/801069133810237491/c52232a0533ea8976080943fbf0bad41.webp",
+                "displayAvatarURL": "https://cdn.discordapp.com/avatars/801069133810237491/c52232a0533ea8976080943fbf0bad41.webp"
+            },
+            "createdAt": "2023-05-15T13:24:25.412Z",
+            "attachments": []
+        },
+        {
+            "content": ".gg",
+            "author": {
+                "id": "801069133810237491",
+                "bot": false,
+                "system": false,
+                "flags": 4194560,
+                "username": "Harlex",
+                "discriminator": "7969",
+                "avatar": "c52232a0533ea8976080943fbf0bad41",
+                "createdTimestamp": 1611060164645,
+                "defaultAvatarURL": "https://cdn.discordapp.com/embed/avatars/4.png",
+                "tag": "Harlex#7969",
+                "avatarURL": "https://cdn.discordapp.com/avatars/801069133810237491/c52232a0533ea8976080943fbf0bad41.webp",
+                "displayAvatarURL": "https://cdn.discordapp.com/avatars/801069133810237491/c52232a0533ea8976080943fbf0bad41.webp"
+            },
+            "createdAt": "2023-05-15T13:22:53.699Z",
+            "attachments": []
+        },
+        {
+            "content": "VKJANSŞVJAMİSVla",
+            "author": {
+                "id": "801069133810237491",
+                "bot": false,
+                "system": false,
+                "flags": 4194560,
+                "username": "Harlex",
+                "discriminator": "7969",
+                "avatar": "c52232a0533ea8976080943fbf0bad41",
+                "createdTimestamp": 1611060164645,
+                "defaultAvatarURL": "https://cdn.discordapp.com/embed/avatars/4.png",
+                "tag": "Harlex#7969",
+                "avatarURL": "https://cdn.discordapp.com/avatars/801069133810237491/c52232a0533ea8976080943fbf0bad41.webp",
+                "displayAvatarURL": "https://cdn.discordapp.com/avatars/801069133810237491/c52232a0533ea8976080943fbf0bad41.webp"
+            },
+            "createdAt": "2023-05-15T13:22:51.712Z",
+            "attachments": []
+        },
+        {
+            "content": "aq",
+            "author": {
+                "id": "801069133810237491",
+                "bot": false,
+                "system": false,
+                "flags": 4194560,
+                "username": "Harlex",
+                "discriminator": "7969",
+                "avatar": "c52232a0533ea8976080943fbf0bad41",
+                "createdTimestamp": 1611060164645,
+                "defaultAvatarURL": "https://cdn.discordapp.com/embed/avatars/4.png",
+                "tag": "Harlex#7969",
+                "avatarURL": "https://cdn.discordapp.com/avatars/801069133810237491/c52232a0533ea8976080943fbf0bad41.webp",
+                "displayAvatarURL": "https://cdn.discordapp.com/avatars/801069133810237491/c52232a0533ea8976080943fbf0bad41.webp"
+            },
+            "createdAt": "2023-05-15T13:22:49.696Z",
+            "attachments": []
+        }
+    ],
+    "hesap_1001220573457813584": "dasda",
+    "coin_1001220573457813584": 886,
+    "lastBet_1001220573457813584": 1684157046307,
+    "günlük_1001220573457813584": "1684243497",
+    "hesap_801069133810237491": "naber",
+    "coin_801069133810237491": 500,
+    "voiceConnection_1015882960806871070": {
+        "channelId": "1087297914847637544",
+        "guildId": "1015882960806871070"
     }
 }

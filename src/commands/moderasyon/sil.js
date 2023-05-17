@@ -1,4 +1,4 @@
-const { ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('discord.js');
+const { ActionRowBuilder, ButtonBuilder, ButtonStyle, PermissionsBitField } = require('discord.js');
 
 module.exports = {
     conf: {
@@ -12,7 +12,7 @@ module.exports = {
         if (!message.guild) return;
 
 
-        if (!message.member.permissions.has("MANAGE_MESSAGES")) return message.reply('Üzgünüm, buna yetkin yok :grinning:')
+        if (!message.member.permissions.has(PermissionsBitField.Flags.ManageMessages)) return message.reply('Üzgünüm, buna yetkin yok :grinning:')
 
         const silindi = new ActionRowBuilder()
             .addComponents(
@@ -39,9 +39,7 @@ module.exports = {
             message.channel.send({ content: `${limit} Kadar Mesaj Silindi`, components: [silindi] });
 
         } catch {
-
             await message.channel.send(limit + ' kadar mesajı silemedim, büyük ihtimalle mesajlar 14 günden eski!')
-
         }
     },
 }

@@ -1,4 +1,5 @@
 const db = require("nrc.db");
+const { PermissionsBitField } = require('discord.js');
 
 module.exports = {
     conf: {
@@ -9,7 +10,7 @@ module.exports = {
     },
 
     run: async (client, message, args, embed) => {
-        if (!message.member.permissions.has("ADMINISTRATOR")) {
+        if (!message.member.permissions.has(PermissionsBitField.Flags.Administrator)) {
             return message.reply(
                 "Bu komutu kullanabilmek için `Yönetici` yetkisine sahip olmalısın."
             );

@@ -1,4 +1,4 @@
-const { EmbedBuilder } = require("discord.js");
+const { EmbedBuilder, PermissionsBitField } = require("discord.js");
 const db = require("nrc.db")
 const settings = require("../../configs/settings.json")
 
@@ -14,7 +14,7 @@ module.exports = {
     run: async (client, message, args) => {
         if (!message.guild) return;
 
-        if (!message.member.permissions.has("ADMINISTRATOR")) return message.reply("Bu Komudu Kullanabilmek için sunucuyu yönet yetkisine sahip olmanız gerekmekte.")
+        if (!message.member.permissions.has(PermissionsBitField.Flags.Administrator)) return message.reply("Bu Komudu Kullanabilmek için sunucuyu yönet yetkisine sahip olmanız gerekmekte.")
 
         const jailyardım = new EmbedBuilder()
             .setAuthor({ name: message.guild.name, iconURL: message.guild.iconURL({ dynamic: true, size: 2048 }) })

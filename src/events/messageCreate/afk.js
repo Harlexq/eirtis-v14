@@ -1,6 +1,6 @@
 
 const db = require("nrc.db")
-const settings = require("../configs/settings.json");
+const settings = require("../../configs/settings.json");
 
 module.exports = async (message) => {
 

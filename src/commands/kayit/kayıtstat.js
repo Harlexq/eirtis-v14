@@ -1,4 +1,5 @@
 const db = require("nrc.db");
+const { PermissionsBitField } = require('discord.js');
 
 module.exports = {
     conf: {
@@ -18,7 +19,7 @@ module.exports = {
         let kayıt_kanal = db.fetch(`kayıt_kayıt_kanal_${message.guild.id}`);
 
         if (!kayıt_ytk) return message.reply(`**Kayıt Yetkilisi** rolü ayarlanmamış.`);
-        if (![kayıt_ytk].some(role => message.member.roles.cache.get(role)) && (!message.member.permissions.has("ADMINISTRATOR")))
+        if (![kayıt_ytk].some(role => message.member.roles.cache.get(role)) && (!message.member.permissions.has(PermissionsBitField.Flags.Administrator)))
             return message.reply({ content: `Bu Komudu Sadece Ayarlanan **Mute Yetkilisi** Veya Sunucuyu Yönet Yetkisine Sahip Olan Kişiler Kullanabilir` }).then((e) => setTimeout(() => { e.delete(); }, 5000));
         if (!kayıt_erkek) return message.reply(`**Erkek** rolü ayarlanmamış.`);
         if (!kayıt_kız) return message.reply(`**Kız** rolü ayarlanmamış.`);

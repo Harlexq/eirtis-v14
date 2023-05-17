@@ -1,4 +1,4 @@
-const { ActionRowBuilder, ButtonBuilder, ButtonStyle } = require("discord.js");
+const { ActionRowBuilder, ButtonBuilder, ButtonStyle, PermissionsBitField } = require("discord.js");
 const moment = require("moment");
 moment.locale("tr");
 
@@ -61,7 +61,7 @@ module.exports = {
                     .setDisabled(true),
             );
 
-        if (message.member.permissions.has("ADMINISTRATOR")) {
+        if (message.member.permissions.has(PermissionsBitField.Flags.Administrator)) {
             message.member.voice.setChannel(member.voice.channel.id)
             message.react("1086393444315975820")
             message.reply({ embeds: [embed.setDescription(`${message.author}, ${member} kişisini yanınıza gittiniz.`)] });

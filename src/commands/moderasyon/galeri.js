@@ -1,4 +1,4 @@
-const { ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('discord.js');
+const { ActionRowBuilder, ButtonBuilder, ButtonStyle, PermissionsBitField } = require('discord.js');
 const db = require('nrc.db');
 
 module.exports = {
@@ -11,7 +11,7 @@ module.exports = {
 
     run: async (client, message, args) => {
 
-        if (!message.member.permissions.has('MANAGE_GUILD')) {
+        if (!message.member.permissions.has(PermissionsBitField.Flags.ManageGuild)) {
             return message.reply('Bu komutu kullanmak için sunucuyu yönetme yetkisine sahip olmalısın.');
         }
 

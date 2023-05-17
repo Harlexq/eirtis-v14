@@ -1,6 +1,6 @@
 const client = global.client;
 const { EmbedBuilder } = require("discord.js");
-const settings = require("../configs/settings.json");
+const settings = require("../../configs/settings.json");
 const cooldowns = new Map();
 
 module.exports = async (message) => {

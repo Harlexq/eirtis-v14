@@ -1,3 +1,5 @@
+const { PermissionsBitField } = require('discord.js');
+
 module.exports = {
         conf: {
                 aliases: ["taşı", "tası"],
@@ -9,7 +11,7 @@ module.exports = {
         run: async (client, message, args) => {
                 if (!message.guild) return;
 
-                if (!message.member.permissions.has("MOVE_MEMBERS")) {
+                if (!message.member.permissions.has(PermissionsBitField.Flags.MoveMembers)) {
                         return message.reply("Üyeleri Taşıma yetkiniz yok.");
                 }
 

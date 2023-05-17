@@ -1,4 +1,4 @@
-const { ActionRowBuilder, ButtonBuilder, ButtonStyle } = require("discord.js");
+const { ActionRowBuilder, ButtonBuilder, ButtonStyle, PermissionsBitField } = require("discord.js");
 const db = require("nrc.db");
 const settings = require("../../configs/settings.json")
 
@@ -22,9 +22,10 @@ module.exports = {
         const kayıtsızİsim = db.fetch(`kayıt_kayıtsız_isim_${message.guild.id}`) || '• İsim | Yaş';
 
         if (!kayıtYetkili) return message.reply(`**Kayıt Yetkilisi** rolü ayarlanmamış.`);
-        if (![kayıtYetkili].some(role => message.member.roles.cache.get(role)) && !message.member.permissions.has("ADMINISTRATOR")) {
+        if (![kayıtYetkili].some(role => message.member.roles.cache.get(role)) && !message.member.permissions.has(PermissionsBitField.Flags.Administrator)) {
             return message.reply({ content: `Bu komudu sadece ayarlanan **Kayıt Yetkilisi** veya sunucuyu yönet yetkisine sahip olan kişiler kullanabilir.` }).then((e) => setTimeout(() => { e.delete(); }, 5000));
         }
+
         if (!kayıtErkek) return message.reply(`**Erkek** rolü ayarlanmamış.`);
         if (!kayıtKız) return message.reply(`**Kız** rolü ayarlanmamış.`);
         if (!kayıtKayıtsız) return message.reply(`**Kayıtsız** rolü ayarlanmamış.`);
@@ -43,14 +44,6 @@ module.exports = {
         const memberRoles = member.roles.cache;
         if (memberRoles.has(kayıtErkek) || memberRoles.has(kayıtKız)) {
             return message.reply("Bu kullanıcı zaten kayıtlı. Kayıtsıza atıp tekrar deneyin. \`e.kayıtsız @Kişi\`");
-        }
-
-        if (!member.roles || member.roles.highest.position >= message.member.roles.highest.position) {
-            return message.reply("Belirttiğiniz kişi sizinle aynı yetkiye sahip veya sizden daha yetkili.");
-        }
-
-        if (!message.member.roles || member.roles.highest.position >= message.member.roles.highest.position) {
-            return message.reply("Belirttiğiniz kişi botun yetkisiyle aynı veya daha üst bir yetkiye sahip.");
         }
 
         if (args[1].length > 32) return message.reply('Girilen isim 32 karakterden fazla olamaz, lütfen daha kısa bir isim giriniz.');

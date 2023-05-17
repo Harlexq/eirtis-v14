@@ -1,6 +1,6 @@
 const db = require("nrc.db");
 const settings = require("../../configs/settings.json");
-const { ActionRowBuilder, ButtonBuilder, ButtonStyle } = require("discord.js");
+const { ActionRowBuilder, ButtonBuilder, ButtonStyle, PermissionsBitField } = require("discord.js");
 
 module.exports = {
     conf: {
@@ -33,7 +33,7 @@ module.exports = {
             ![kontrolmuteytkrol].some((role) =>
                 message.member.roles.cache.get(role)
             ) &&
-            !message.member.permissions.has("ADMINISTRATOR")
+            !message.member.permissions.has(PermissionsBitField.Flags.Administrator)
         )
             return message
                 .reply({

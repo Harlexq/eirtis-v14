@@ -1,5 +1,5 @@
 const { ActionRowBuilder, ButtonBuilder, EmbedBuilder, ButtonStyle } = require("discord.js");
-const settings = require("../configs/settings.json");
+const settings = require("../../configs/settings.json");
 
 module.exports = async (guild) => {
 

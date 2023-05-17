@@ -18,8 +18,7 @@ module.exports = {
         let isPremium = db.get(`premium_${userID}`);
 
         if (isPremium) return message.reply(`${message.author.username}, bu kullanıcı zaten premium üye.`);
-
-        db.set(`premium_${userID}`, true);
+        db.set(`premium_${userID.replace(/[^\d]/g, '')}`, true);
 
         message.reply(`${message.author.username}, başarıyla kullanıcıyı premium üye listesine eklediniz.`);
     }

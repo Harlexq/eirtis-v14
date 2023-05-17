@@ -1,3 +1,5 @@
+const { PermissionsBitField } = require('discord.js');
+
 module.exports = {
     conf: {
         aliases: ["rol-ver"],
@@ -9,7 +11,7 @@ module.exports = {
     run: async (client, message, args, embed) => {
         if (!message.guild) return;
 
-        if (!message.member.permissions.has("MANAGE_ROLES")) return message.reply("Rolleri Yönet Yetkiniz Bulunmamakta.")
+        if (!message.member.permissions.has(PermissionsBitField.Flags.ManageRoles)) return message.reply("Rolleri Yönet Yetkiniz Bulunmamakta.")
 
         let user = message.mentions.users.first();
         let rol = message.mentions.roles.first();

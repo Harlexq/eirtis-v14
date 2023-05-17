@@ -1,3 +1,5 @@
+const { PermissionsBitField } = require('discord.js');
+
 module.exports = {
         conf: {
                 aliases: [],
@@ -9,7 +11,7 @@ module.exports = {
         run: async (client, message, args, embed) => {
                 if (!message.guild) return;
 
-                if (!message.member.permissions.has("BAN_MEMBERS")) {
+                if (!message.member.permissions.has(PermissionsBitField.Flags.BanMembers)) {
                         return message.reply("Üyeleri Banla yetkiniz yok.");
                 }
 

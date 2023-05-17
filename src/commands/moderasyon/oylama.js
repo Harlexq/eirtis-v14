@@ -1,4 +1,4 @@
-const { ButtonBuilder, ActionRowBuilder, ButtonStyle } = require("discord.js");
+const { ButtonBuilder, ActionRowBuilder, ButtonStyle, PermissionsBitField } = require("discord.js");
 
 module.exports = {
     conf: {
@@ -10,7 +10,7 @@ module.exports = {
 
     run: async (client, message, args, embed) => {
         if (!message.guild) return;
-        if (!message.member.permissions.has('ADMINISTRATOR')) {
+        if (!message.member.permissions.has(PermissionsBitField.Flags.Administrator)) {
             message.reply({ content: `Yetkin bulunmamakta dostum.` }).then((e) => setTimeout(() => { e.delete(); }, 5000));
             return;
         }

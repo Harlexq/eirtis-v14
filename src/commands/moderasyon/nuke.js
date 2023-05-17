@@ -1,3 +1,5 @@
+const { PermissionsBitField } = require('discord.js');
+
 module.exports = {
     conf: {
         aliases: ["nuke"],
@@ -13,7 +15,7 @@ module.exports = {
 
         if (!targetChannel) return message.reply("Lütfen bir kanal etiketleyin veya ID'sini girin.");
 
-        if (!message.member.permissions.has("ADMINISTRATOR")) return message.reply("Bu komudu kullanabilmek için `Yönetici` iznine sahip olmanız gerekiyor.");
+        if (!message.member.permissions.has(PermissionsBitField.Flags.Administrator)) return message.reply("Bu komudu kullanabilmek için `Yönetici` iznine sahip olmanız gerekiyor.");
 
         if (targetChannel.deleted || targetChannel.type === "GUILD_CATEGORY") {
             return message.reply("Belirtilen kanal mevcut değil veya kategori türünde olduğundan silinemez.");

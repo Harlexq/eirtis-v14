@@ -1,3 +1,5 @@
+const { PermissionsBitField } = require('discord.js');
+
 module.exports = {
     conf: {
         aliases: ["setcolor"],
@@ -9,7 +11,7 @@ module.exports = {
     run: async (client, message, args, embed) => {
         if (!message.guild) return;
 
-        if (!message.member.permissions.has('ADMINISTRATOR')) {
+        if (!message.member.permissions.has(PermissionsBitField.Flags.ManageRoles)) {
             return message.reply({ content: `Yetkin bulunmamakta dostum.`, ephemeral: true });
         }
 

@@ -1,6 +1,6 @@
 const db = require("nrc.db")
 const settings = require("../../configs/settings.json")
-const { ActionRowBuilder, ButtonBuilder, ButtonStyle } = require("discord.js")
+const { ActionRowBuilder, ButtonBuilder, ButtonStyle, PermissionsBitField } = require("discord.js")
 
 
 module.exports = {
@@ -22,7 +22,7 @@ module.exports = {
         if (!kontrolkanal) return message.reply(`Voice Mute Log Ayarlanmamış. Ayarlamak için **${settings.prefix}voicemute-ayar log #Kanal**`)
         if (!kontrolvoicemuteytkrol) return message.reply(`Voice Mute Yetkilisi Rolünü Ayarlayınız. Ayarlamak için **${settings.prefix}voicemute-ayar voicemute-yetkilisi @Yetkili** `)
 
-        if (![kontrolvoicemuteytkrol].some(role => message.member.roles.cache.get(role)) && (!message.member.permissions.has("ADMINISTRATOR")))
+        if (![kontrolvoicemuteytkrol].some(role => message.member.roles.cache.get(role)) && (!message.member.permissions.has(PermissionsBitField.Flags.Administrator)))
             return message.reply({ content: `Bu Komudu Sadece Ayarlanan **Voice Mute Yetkilisi** Veya Sunucuyu Yönet Yetkisine Sahip Olan Kişiler Kullanabilir` }).then((e) => setTimeout(() => { e.delete(); }, 5000));
 
         let user = message.mentions.users.first();
