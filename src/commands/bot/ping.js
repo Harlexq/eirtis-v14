@@ -1,6 +1,5 @@
 const { ActionRowBuilder, ButtonBuilder, ButtonStyle } = require("discord.js")
 
-
 module.exports = {
     conf: {
         aliases: ["ping"],
@@ -10,7 +9,10 @@ module.exports = {
     },
 
     run: async (client, message, args, embed) => {
+
         if (!message.guild) return;
+        const startTime = performance.now();
+
         const butonlar = new ActionRowBuilder()
             .addComponents(
                 new ButtonBuilder()
@@ -20,17 +22,14 @@ module.exports = {
                     .setStyle(ButtonStyle.Primary)
             );
 
-        await message.reply({ embeds: [embed.setDescription(`Botun Pingini Görmek İçin Aşşağıdaki Butona Basınız`)], components: [butonlar], ephemeral: true })
+        let msg = await message.reply({ embeds: [embed.setDescription(`Botun Pingini Görmek İçin Aşşağıdaki Butona Basınız`)], components: [butonlar] })
+        var filter = (menu) => menu.user.id === message.author.id;
+        const collector = msg.createMessageComponentCollector({ filter })
 
-        client.on('interactionCreate', async interaction => {
-
-            if (interaction.customId === "pings") {
-                await interaction.reply({ embeds: [embed.setDescription(`Botun Pingi: ${Math.round(message.client.ws.ping)} MS`)], ephemeral: true });
+        collector.on("collect", async (menu) => {
+            if (menu.customId === "pings") {
+                await menu.reply({ embeds: [embed.setDescription(`Botun Pingi: ${Math.round(message.client.ws.ping)} MS`)], ephemeral: true });
             }
-
         })
-
     },
 }
-
-
