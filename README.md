@@ -45,12 +45,12 @@ Botun özelliklerini kullanırken, botun rolünün ve izinlerinin doğru şekild
 ## Katkıda Bulunma
 Eğer bu projeye katkıda bulunmak isterseniz, aşağıdaki adımları izleyebilirsiniz:
 
-#### Kendi bilgisayarınıza fork ettiğiniz repo'yu klonlayın.
-#### Bu repo'yu fork edin.
-#### Değişikliklerinizi yapın ve commit'leyin.
-#### Fork ettiğiniz repoya değişikliklerinizi push'layın.
-#### GitHub üzerinden orijinal repoya bir pull isteği (pull request) oluşturun.
-#### Pull isteğiniz gözden geçirildikten sonra, değişikliklerinizin ana projeye entegre edilmesi için merge işlemi yapılacaktır.
+#### 1. Kendi bilgisayarınıza fork ettiğiniz repo'yu klonlayın.
+#### 2. Bu repo'yu fork edin.
+#### 3. Değişikliklerinizi yapın ve commit'leyin.
+#### 4. Fork ettiğiniz repoya değişikliklerinizi push'layın.
+#### 5. GitHub üzerinden orijinal repoya bir pull isteği (pull request) oluşturun.
+#### 6. Pull isteğiniz gözden geçirildikten sonra, değişikliklerinizin ana projeye entegre edilmesi için merge işlemi yapılacaktır.
 
 # Lütfen, katkıda bulunmadan önce aşağıdaki hususlara dikkat edin:
 
