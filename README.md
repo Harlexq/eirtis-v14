@@ -21,16 +21,16 @@ Kurulum
 <pre>
 <code>
 npm install
-<code>
-<pre>
+</code>
+</pre>
 
 5. Botu başlatmak için aşağıdaki komutu çalıştırın:
 
 <pre>
 <code>
 node eirtis.js
-<code>
-<pre>
+</code>
+</pre>
 
 
 ## Kullanım
@@ -69,5 +69,5 @@ Eğer projemizle ilgili herhangi bir sorunuz, öneriniz veya geri bildiriminiz v
 <pre>
 <code>
 Discord: Harlex#0001
-<code>
-<pre>
+</code>
+</pre>
