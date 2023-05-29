@@ -5,13 +5,14 @@ Eirtis, Discord sunucularında moderasyon, ceza işlemleri, eğlence, ekonomi, �
 ## Özellikler
 Eirtis botunun aşağıdaki özellikleri bulunmaktadır:
 
-### Moderasyon: Sunucunuzda moderasyon işlemlerini gerçekleştirmek için komutlar içerir.
-### Ceza İşlemleri: Kullanıcıları susturma, yasaklama ve uyarı verme gibi ceza işlemleri yapmanıza olanak sağlar.
-### Eğlence: Kullanıcılara eğlenceli komutlar sunar, örneğin şakalar yapar veya rastgele bir hayvan fotoğrafı gösterir.
-### Ekonomi: Sanal bir ekonomi sistemi sunar, kullanıcılar arasında para transferi yapmanıza olanak sağlar.
-### Çekiliş: Sunucunuzda çekilişler düzenlemenize olanak sağlar.
+Moderasyon: Sunucunuzda moderasyon işlemlerini gerçekleştirmek için komutlar içerir.
+Ceza İşlemleri: Kullanıcıları susturma, yasaklama ve uyarı verme gibi ceza işlemleri yapmanıza olanak sağlar.
+Eğlence: Kullanıcılara eğlenceli komutlar sunar, örneğin şakalar yapar veya rastgele bir hayvan fotoğrafı gösterir.
+Ekonomi: Sanal bir ekonomi sistemi sunar, kullanıcılar arasında para transferi yapmanıza olanak sağlar.
+Çekiliş: Sunucunuzda çekilişler düzenlemenize olanak sağlar.
 Ve daha fazlası...
-Kurulum
+
+## Kurulum
 
 1. Bu repoyu klonlayın veya ZIP olarak indirin: <a href="https://github.com/Harlexq/eirtis-v14" target="_blank"></a>
 2. Discord Developer Portal'dan bir bot oluşturun ve botunuz için bir token alın.
@@ -45,14 +46,14 @@ Botun özelliklerini kullanırken, botun rolünün ve izinlerinin doğru şekild
 ## Katkıda Bulunma
 Eğer bu projeye katkıda bulunmak isterseniz, aşağıdaki adımları izleyebilirsiniz:
 
-#### 1. Kendi bilgisayarınıza fork ettiğiniz repo'yu klonlayın.
-#### 2. Bu repo'yu fork edin.
-#### 3. Değişikliklerinizi yapın ve commit'leyin.
-#### 4. Fork ettiğiniz repoya değişikliklerinizi push'layın.
-#### 5. GitHub üzerinden orijinal repoya bir pull isteği (pull request) oluşturun.
-#### 6. Pull isteğiniz gözden geçirildikten sonra, değişikliklerinizin ana projeye entegre edilmesi için merge işlemi yapılacaktır.
+1. Kendi bilgisayarınıza fork ettiğiniz repo'yu klonlayın.
+2. Bu repo'yu fork edin.
+3. Değişikliklerinizi yapın ve commit'leyin.
+4. Fork ettiğiniz repoya değişikliklerinizi push'layın.
+5. GitHub üzerinden orijinal repoya bir pull isteği (pull request) oluşturun.
+6. Pull isteğiniz gözden geçirildikten sonra, değişikliklerinizin ana projeye entegre edilmesi için merge işlemi yapılacaktır.
 
-# Lütfen, katkıda bulunmadan önce aşağıdaki hususlara dikkat edin:
+## Lütfen, katkıda bulunmadan önce aşağıdaki hususlara dikkat edin:
 
 1. Değişiklik yapacağınız konuyu veya özelliği kapsayan bir konu (issue) oluşturun ve tartışmalarınızı bu konu üzerinde yapın.
 2. Kodunuzda anlaşılabilir ve tutarlı bir şekilde yazım kurallarına dikkat edin.
@@ -60,10 +61,10 @@ Eğer bu projeye katkıda bulunmak isterseniz, aşağıdaki adımları izleyebil
 4. Herhangi bir yeni özellik ekleyecekseniz, bununla ilgili testler yapmayı unutmayın.
 5. Projeyle ilgili herhangi bir sorunuz varsa, GitHub üzerinden bir konu açarak sorabilirsiniz.
 
-# Lisans
+## Lisans
 Bu projenin lisansı MIT lisansı altında yer almaktadır. Detaylı bilgi için LICENSE dosyasını inceleyebilirsiniz.
 
-# İletişim
+## İletişim
 Eğer projemizle ilgili herhangi bir sorunuz, öneriniz veya geri bildiriminiz varsa, lütfen bize ulaşmaktan çekinmeyin. İletişim bilgilerimiz aşağıdaki gibidir:
 
 <pre>
