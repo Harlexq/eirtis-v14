@@ -1,5 +1,5 @@
 {
-    "TOKEN": "MTA5OTc0MDc1ODYyMzM5NTg2MA.GZw_lt.82VLODCiG8Q83ETFqz93pvR7D1sGhzZbJ6oSZs",
+    "TOKEN": "",
     "prefix": [
         "e."
     ],
@@ -7,10 +7,10 @@
         "/yardım & e.yardım",
         "e.yardım & /yardım"
     ],
-    "botClientID": "1099740758623395860",
-    "mongoUrl": "mongodb+srv://harlex:harlex@cluster0.4wfms.mongodb.net/?retryWrites=true&w=majority",
-    "youtubeAPI": "AIzaSyD-zk2FPEQa4NHmpcp8mUTnxYfty-qWYUc",
-    "googleApiKey": "AIzaSyCUyIe-ZETQoOuXc30BY1Frg7EjcE8YIpk",
+    "botClientID": "",
+    "mongoUrl": "",
+    "youtubeAPI": "",
+    "googleApiKey": "",
     "emoji": {
         "green": "<:harlexgreen:1086393444315975820>",
         "red": "<:harlexred:1086393445574262836>",
