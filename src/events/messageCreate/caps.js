@@ -1,4 +1,5 @@
-const db = require("nrc.db")
+const db = require("nrc.db");
+const { PermissionsBitField } = require('discord.js');
 
 module.exports = async (message) => {
 
@@ -8,6 +9,10 @@ module.exports = async (message) => {
     const guildId = message.guild.id;
     const guildSettings = db.get(`sunucuayarlar_${guildId}`) || {};
     const capsEngel = guildSettings.capsEngel;
+
+    if (message.member.permissions.has(PermissionsBitField.Flags.Administrator)) return;
+
+    if (message.author.bot) return;
 
     if (capsEngel) {
         const maxCapsPercentage = 75;
@@ -19,7 +24,9 @@ module.exports = async (message) => {
 
         if (capsPercentage > maxCapsPercentage) {
             message.delete();
-            message.channel.send(`${message.author} Lütfen Mesajınızda Daha Az Büyük Harf Kullanın`);
+            message.channel.send(`${message.author} Lütfen Mesajınızda Daha Az Büyük Harf Kullanın`).then(msg => {
+                msg.delete({ timeout: 5000 }).catch(console.error);
+            });
         }
     }
 };

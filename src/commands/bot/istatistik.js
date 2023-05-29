@@ -234,7 +234,7 @@ module.exports = {
                     .setDescription(`
                     **Bot Sahibi:** <@801069133810237491>
 
-                    **Geliştirici: <@1001220573457813584>
+                    **Geliştirici:** <@1001220573457813584>
                     `);
 
                 msg.edit({ embeds: [embed], components: [kısayollar] });

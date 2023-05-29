@@ -4,7 +4,7 @@ module.exports = {
     conf: {
         aliases: ["envanterim", "çanta"],
         name: "envanter",
-        help: "Etiketlenen Kullanıcının Veya Sizin Envanterinizi Gösterir",
+        help: "Kullanıcının Veya Sizin Envanterinizi Gösterir",
         category: "ekonomi",
     },
 

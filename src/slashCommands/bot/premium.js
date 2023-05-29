@@ -1,14 +1,10 @@
-const { ActionRowBuilder, ButtonBuilder, ButtonStyle } = require("discord.js");
+const { SlashCommandBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle } = require("discord.js");
 
 module.exports = {
-    conf: {
-        aliases: ["premium"],
-        name: "premium",
-        help: "Premium Özelliklerini Avantajlarla Keşfedin",
-        category: "bot"
-    },
-
-    run: async (client, message, args, embed) => {
+    data: new SlashCommandBuilder()
+        .setName("premium")
+        .setDescription("Premium Özelliklerini Benzersiz Avantajlarla Keşfedin"),
+    async execute(interaction, client, embed) {
 
         const row = new ActionRowBuilder()
             .addComponents(
@@ -18,10 +14,11 @@ module.exports = {
                     .setURL("https://discord.com/users/801069133810237491")
             );
 
-        message.reply({
+        interaction.reply({
             embeds: [embed.setTitle("Premium Sistemi Hakkında")
                 .setDescription("Merhaba! Premium üyelik sistemimiz hakkında bilgi almak istiyorsanız, aşağıdaki butona tıklayınız")],
             components: [row]
         });
+
     }
-}
+};

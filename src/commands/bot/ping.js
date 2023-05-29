@@ -11,7 +11,6 @@ module.exports = {
     run: async (client, message, args, embed) => {
 
         if (!message.guild) return;
-        const startTime = performance.now();
 
         const butonlar = new ActionRowBuilder()
             .addComponents(

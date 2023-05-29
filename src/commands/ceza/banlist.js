@@ -36,61 +36,61 @@ module.exports = {
                                                 .slice(currentPage * PAGE_SIZE, (currentPage + 1) * PAGE_SIZE)
                                                 .map(
                                                         (ban, index) =>
-                                                                `${currentPage * PAGE_SIZE + index + 1}. **İsim** = **${ban.name}**\n**İD** = \`${ban.id}\`\n**Yasaklanma Sebebi** = ${ban.reason}`
+                                                                `**${currentPage * PAGE_SIZE + index + 1}.** **İsim** = **\`${ban.name}\`** **İD** = \`${ban.id}\` **Yasaklanma Sebebi** = ${ban.reason}`
                                                 )
                                                 .join("\n")
                                 );
 
-        const row = new ActionRowBuilder().addComponents(
-                new ButtonBuilder()
-                        .setCustomId("prev")
-                        .setEmoji("1086618667950809139")
-                        .setStyle(ButtonStyle.Primary)
-                        .setDisabled(currentPage === 0),
-                new ButtonBuilder()
-                        .setCustomId("next")
-                        .setEmoji("1086617551380955236")
-                        .setStyle(ButtonStyle.Primary)
-                        .setDisabled(currentPage === pageCount - 1)
-        );
+                        const row = new ActionRowBuilder().addComponents(
+                                new ButtonBuilder()
+                                        .setCustomId("prev")
+                                        .setEmoji("1086618667950809139")
+                                        .setStyle(ButtonStyle.Primary)
+                                        .setDisabled(currentPage === 0),
+                                new ButtonBuilder()
+                                        .setCustomId("next")
+                                        .setEmoji("1086617551380955236")
+                                        .setStyle(ButtonStyle.Primary)
+                                        .setDisabled(currentPage === pageCount - 1)
+                        );
 
-        return { embeds: [embed], components: [row] };
-};
+                        return { embeds: [embed], components: [row] };
+                };
 
-const messageReply = await message.reply(generateEmbed());
+                const messageReply = await message.reply(generateEmbed());
 
-const filter = (interaction) =>
-        interaction.user.id === message.author.id &&
-        ["prev", "next"].includes(interaction.customId);
+                const filter = (interaction) =>
+                        interaction.user.id === message.author.id &&
+                        ["prev", "next"].includes(interaction.customId);
 
-const collector = messageReply.createMessageComponentCollector({ filter });
+                const collector = messageReply.createMessageComponentCollector({ filter });
 
-collector.on("collect", async (interaction) => {
-        if (interaction.customId === "prev") {
-                currentPage--;
-        } else {
-                currentPage++;
-        }
+                collector.on("collect", async (interaction) => {
+                        if (interaction.customId === "prev") {
+                                currentPage--;
+                        } else {
+                                currentPage++;
+                        }
 
-        await interaction.update(generateEmbed());
-});
+                        await interaction.update(generateEmbed());
+                });
 
-collector.on("end", async () => {
-        const row = new ActionRowBuilder().addComponents(
-                new ButtonBuilder()
-                        .setCustomId("prev")
-                        .setEmoji("1086618667950809139")
-                        .setStyle(ButtonStyle.Secondary)
-                        .setDisabled(true),
-                new ButtonBuilder()
-                        .setCustomId("next")
-                        .setEmoji("1086617551380955236")
-                        .setStyle(ButtonStyle.Secondary)
-                        .setDisabled(true)
-        );
+                collector.on("end", async () => {
+                        const row = new ActionRowBuilder().addComponents(
+                                new ButtonBuilder()
+                                        .setCustomId("prev")
+                                        .setEmoji("1086618667950809139")
+                                        .setStyle(ButtonStyle.Secondary)
+                                        .setDisabled(true),
+                                new ButtonBuilder()
+                                        .setCustomId("next")
+                                        .setEmoji("1086617551380955236")
+                                        .setStyle(ButtonStyle.Secondary)
+                                        .setDisabled(true)
+                        );
 
-        await messageReply.edit({ components: [row] });
-});
+                        await messageReply.edit({ components: [row] });
+                });
 
         },
 };

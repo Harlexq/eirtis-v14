@@ -84,7 +84,6 @@ module.exports = {
             **Eğlence Komutlarını Görmek için** ${settings.emoji.eglence}
             
             **Bot Komutlarını Görmek için** ${settings.emoji.bot}
-
 `)
 
         const button1 = new ActionRowBuilder()

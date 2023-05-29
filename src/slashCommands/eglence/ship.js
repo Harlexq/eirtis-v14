@@ -1,4 +1,4 @@
-const { AttachmentBuilder, SlashCommandBuilder } = require("discord.js");
+const { SlashCommandBuilder, AttachmentBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle } = require("discord.js");
 const Canvas = require("canvas");
 const moment = require("moment");
 require("moment-duration-format");
@@ -58,15 +58,24 @@ module.exports = {
     ctx.fillText(`${percentage}%`, 295, 175);
 
     const loveMessages = [
-      `**<@${interaction.user.id}>** ve **<@${user.id}>** arasındaki aşk **%${percentage}** ${percentage >= 50 ? "💖" : "💔"
+      `**${interaction.user}** ve **${user}** arasındaki aşk **%${percentage}** ${percentage >= 50 ? "💖" : "💔"
       }`,
-      `**<@${interaction.user.id}>** ve **<@${user.id}>** arasında **%${percentage}** aşk var, ne romantik! ${percentage >= 50 ? "💕" : "💔"
+      `**${interaction.user}** ve **${user}** arasında **%${percentage}** aşk var, ne romantik! ${percentage >= 50 ? "💕" : "💔"
       }`,
-      `**<@${interaction.user.id}>** ve **<@${user.id}>** bir birbirlerine %${percentage} oranında aşıklar ${percentage >= 50 ? "❤️" : "💔"
+      `**${interaction.user}** ve **${user}** bir birbirlerine %${percentage} oranında aşıklar ${percentage >= 50 ? "❤️" : "💔"
       }`,
-      `<@${interaction.user.id}> ve <@${user.id}> arasındaki aşk ölçer %${percentage} gösteriyor ${percentage >= 50 ? "💘" : "💔"
+      `**${interaction.user}** ve **${user}** arasındaki aşk ölçer %${percentage} gösteriyor ${percentage >= 50 ? "💘" : "💔"
       }`,
     ];
+
+    let shipbtn = new ActionRowBuilder()
+      .addComponents(
+        new ButtonBuilder()
+          .setStyle(ButtonStyle.Link)
+          .setLabel(`Tanış`)
+          .setEmoji("1028811861669445682")
+          .setURL(`https://discord.com/users/${user.id}`)
+      );
 
     const randomLoveMessage =
       loveMessages[Math.floor(Math.random() * loveMessages.length)];
@@ -74,9 +83,9 @@ module.exports = {
     const buffer = canvas.toBuffer();
     const attachment = new AttachmentBuilder(buffer, { name: "ship.png" });
 
-    interaction.channel.send({
+    interaction.reply({
       embeds: [embed.setDescription(randomLoveMessage)
-        .setImage("attachment://ship.png")], files: [attachment]
-    });
+        .setImage("attachment://ship.png")], files: [attachment], components: [shipbtn]
+    })
   },
 };

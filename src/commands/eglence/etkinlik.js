@@ -9,20 +9,20 @@ module.exports = {
         category: "eglence",
     },
 
-    run: async (client, message, args, embed) => {
+    run: async (client, message, args, embed, prefix) => {
         if (!message.guild) return;
 
         if (!args[0]) return message.reply({
             embeds: [embed.setDescription(`
-            **e.etkinlik youtube** = YouTube\'den bir şeyler izlemenizi sağlar
-            **e.etkinlik poker** = Poker oynamaya ne dersin?
-            **e.etkinlik chess** = Santranç oynamak ister misin?
-            **e.etkinlik fishing** = Haydi balık tutmaya!
-            **e.etkinlik checkers** = Dama oynamayı sever misin?
-            **e.etkinlik lettertile** = Kelime oyunlarına ne dersin?
-            **e.etkinlik wordsnack** = Başka bir kelime oyunu denemek ister misin?
-            **e.etkinlik doodlecrew** = Resim çizmeye ne dersin?
-            **e.etkinlik spellcast** = Rekabet oyunları sever misin?
+            **${prefix}etkinlik youtube** = YouTube\'den bir şeyler izlemenizi sağlar
+            **${prefix}etkinlik poker** = Poker oynamaya ne dersin?
+            **${prefix}etkinlik chess** = Santranç oynamak ister misin?
+            **${prefix}etkinlik fishing** = Haydi balık tutmaya!
+            **${prefix}etkinlik checkers** = Dama oynamayı sever misin?
+            **${prefix}etkinlik lettertile** = Kelime oyunlarına ne dersin?
+            **${prefix}etkinlik wordsnack** = Başka bir kelime oyunu denemek ister misin?
+            **${prefix}etkinlik doodlecrew** = Resim çizmeye ne dersin?
+            **${prefix}etkinlik spellcast** = Rekabet oyunları sever misin?
             `)]
         })
 

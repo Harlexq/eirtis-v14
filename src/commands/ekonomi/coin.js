@@ -8,7 +8,7 @@ module.exports = {
     conf: {
         aliases: ["dolar", "cash", "para", "money"],
         name: "coin",
-        help: "Etiketlenen Kullanıcının Veya Sizin Coininizi Gösterir",
+        help: "Coini Gösterir",
         category: "ekonomi",
     },
 

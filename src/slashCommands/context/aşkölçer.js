@@ -1,5 +1,4 @@
-const { ContextMenuCommandBuilder, ApplicationCommandType } = require("discord.js");
-
+const { ContextMenuCommandBuilder, ApplicationCommandType, ActionRowBuilder, ButtonBuilder, ButtonStyle } = require("discord.js");
 
 module.exports = {
     data: new ContextMenuCommandBuilder()
@@ -37,11 +36,20 @@ module.exports = {
             yorum = 'Sizi evlendirelim <3';
         }
 
+        let shipbtn = new ActionRowBuilder()
+            .addComponents(
+                new ButtonBuilder()
+                    .setStyle(ButtonStyle.Link)
+                    .setLabel(`Tanış`)
+                    .setEmoji("1028811861669445682")
+                    .setURL(`https://discord.com/users/${member.id}`)
+            );
+
         return interaction.reply({
             embeds: [
                 embed.setTitle('Aşk Ölçer')
                     .setDescription(`Aşk Yüzdesi: **%${tahmin}**\n\n${kalp}\n\n${interaction.user} ile ${user} eşleştiniz. ${yorum}\n\n`)
-            ]
+            ], components: [shipbtn]
         });
     }
 };

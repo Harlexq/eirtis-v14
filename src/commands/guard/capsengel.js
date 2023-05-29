@@ -5,7 +5,7 @@ module.exports = {
     conf: {
         aliases: ["caps-engel"],
         name: "capsengel",
-        help: "Sunucudaki Büyük Harf Kullanımını Açar/Kapatır",
+        help: "Büyük Harf Sistemini Açar/Kapatır",
         category: "guard",
     },
 

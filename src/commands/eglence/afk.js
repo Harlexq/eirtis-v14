@@ -1,5 +1,4 @@
-const db = require("nrc.db")
-const settings = require("../../configs/settings.json")
+const afk = require("../../schemas/afk");
 
 module.exports = {
     conf: {
@@ -10,17 +9,14 @@ module.exports = {
     },
 
     run: async (client, message, args, embed) => {
-        if (!message.guild) return;
+        if (message.member.displayName.includes("[AFK]")) return
 
-        let user = message.author
+        const reason = args.join(" ") || "Belirtilmedi!";
 
-        let sebep = args.join(" ")
+        await afk.findOneAndUpdate({ guildID: message.guild.id, userID: message.author.id }, { $set: { reason, date: Date.now() } }, { upsert: true });
 
-        if (!sebep) return message.reply(`<@${user.id}> \'AFK\' Olmak İçin Bir Sebep Yazmalısın ${settings.emoji.red}`)
+        message.reply({ content: "Başarıyla afk moduna girdiniz! Bir şey yazana kadar [AFK] kalacaksınız." }).then((e) => setTimeout(() => { e.delete(); }, 10000));
 
-        db.set(`afk_${user.id}`, sebep)
-
-        return message.reply({ content: `${user} Başarıyla \'AFK\' Moduna Geçiş Yaptın Sebep : **${sebep}**` })
-
+        if (message.member.manageable) message.member.setNickname(`[AFK] ${message.member.displayName}`);
     },
 }

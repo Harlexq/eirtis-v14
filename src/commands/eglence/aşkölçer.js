@@ -1,3 +1,5 @@
+const { ActionRowBuilder, ButtonBuilder, ButtonStyle } = require("discord.js");
+
 module.exports = {
     conf: {
         aliases: ["askölcer", "askolcer"],
@@ -7,8 +9,6 @@ module.exports = {
     },
 
     run: async (client, message, args, embed) => {
-
-
         let member;
         if (message.mentions.members.size) {
             member = message.mentions.members.first();
@@ -40,13 +40,19 @@ module.exports = {
             yorum = "Sizi evlendirelim <3";
         }
 
+        let shipbtn = new ActionRowBuilder()
+            .addComponents(
+                new ButtonBuilder()
+                    .setStyle(ButtonStyle.Link)
+                    .setLabel(`Tanış`)
+                    .setEmoji("1028811861669445682")
+                    .setURL(`https://discord.com/users/${member.id}`)
+            );
 
         message.reply({
             embeds: [embed.setTitle('Aşk Ölçer')
                 .setDescription(`Aşk Yüzdesi: **${tahmin}%**\n\n${kalp}\n\n${yorum}\n\n${message.author} ile ${member} eşleştiniz. ${yorum}\n\n`)
-            ]
+            ], components: [shipbtn]
         });
-
-
     },
 }

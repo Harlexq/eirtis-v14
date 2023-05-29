@@ -1,19 +1,19 @@
 const db = require("nrc.db");
 const settings = require("../../configs/settings.json");
-const { PermissionsBitField } = require('discord.js');
+const { Permissions } = require('discord.js');
 
 module.exports = {
     conf: {
         aliases: ["küfür-engel"],
         name: "küfürengel",
-        help: "Sunucudaki Küfür Engel Sistemini Açar/Kapatır",
+        help: "Küfür Engel Sistemini Açar/Kapatır",
         category: "guard",
     },
 
     run: async (client, message, args) => {
         if (!message.guild) return;
 
-        if (!message.member.permissions.has(PermissionsBitField.Flags.Administrator)) {
+        if (!message.member.permissions.has(Permissions.FLAGS.ADMINISTRATOR)) {
             return message.reply(
                 "Bu Komutu Kullanmak İçin `YÖNETİCİ` Yetkisine Sahip Olmalısın"
             );
@@ -31,4 +31,4 @@ module.exports = {
             );
         }
     },
-}
+};

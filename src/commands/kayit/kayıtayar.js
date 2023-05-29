@@ -32,35 +32,47 @@ module.exports = {
         if (!args[0]) return message.reply({ embeds: [menu] })
 
         if (args[0] === "kayıt-yetkilisi") {
-            let rol = message.mentions.roles.first()
+            let roller = message.mentions.roles;
 
-            if (!rol) return message.reply(`Lütfen **Kayıt Yetkilisi** rolünü etiketleyiniz.`)
-            db.set(`kayıt_yetkili_${message.guild.id}`, rol.id)
-            message.reply(`Başarılı bir şekilde **Kayıt Yetkilisi** rolü ${rol} olarak ayarlandı.`)
+            if (roller.size < 1 || roller.size > 3) return message.reply(`Lütfen **Kayıt Yetkilisi** rollerini 1 ile 3 arasında etiketleyiniz.`);
+
+            const rollerArray = Array.from(roller.values());
+            const rollerIDs = rollerArray.map(role => role.id);
+            db.set(`kayıt_yetkili_${message.guild.id}`, rollerIDs);
+            message.reply(`Başarılı bir şekilde **Kayıt Yetkilisi** rolleri ${rollerArray.join(", ")} olarak ayarlandı.`);
         }
 
         if (args[0] === "erkek-rol") {
-            let rol = message.mentions.roles.first()
+            let roller = message.mentions.roles;
 
-            if (!rol) return message.reply(`Lütfen **Erkek** rolünü etiketleyiniz.`)
-            db.set(`kayıt_erkek_rol_${message.guild.id}`, rol.id)
-            message.reply(`Başarılı bir şekilde **Erkek** rolü ${rol} olarak ayarlandı.`)
+            if (roller.size < 1 || roller.size > 3) return message.reply(`Lütfen **Erkek** rollerini 1 ile 3 arasında etiketleyiniz.`);
+
+            const rollerArray = Array.from(roller.values());
+            const rollerIDs = rollerArray.map(role => role.id);
+            db.set(`kayıt_erkek_rol_${message.guild.id}`, rollerIDs);
+            message.reply(`Başarılı bir şekilde **Erkek** rolleri ${rollerArray.join(", ")} olarak ayarlandı.`);
         }
 
         if (args[0] === "kız-rol") {
-            let rol = message.mentions.roles.first()
+            let roller = message.mentions.roles;
 
-            if (!rol) return message.reply(`Lütfen **Kız** rolünü etiketleyiniz.`)
-            db.set(`kayıt_kız_rol_${message.guild.id}`, rol.id)
-            message.reply(`Başarılı bir şekilde **Kız** rolü ${rol} olarak ayarlandı.`)
+            if (roller.size < 1 || roller.size > 3) return message.reply(`Lütfen **Kız** rollerini 1 ile 3 arasında etiketleyiniz.`);
+
+            const rollerArray = Array.from(roller.values());
+            const rollerIDs = rollerArray.map(role => role.id);
+            db.set(`kayıt_kız_rol_${message.guild.id}`, rollerIDs)
+            message.reply(`Başarılı bir şekilde **Kız** rolü ${rollerArray.join(", ")} olarak ayarlandı.`)
         }
 
         if (args[0] === "kayıtsız-rol") {
-            let rol = message.mentions.roles.first()
+            let roller = message.mentions.roles;
 
-            if (!rol) return message.reply(`Lütfen **Kayıtsız** rolünü etiketleyiniz.`)
-            db.set(`kayıt_kayıtsız_rol_${message.guild.id}`, rol.id)
-            message.reply(`Başarılı bir şekilde **Kayıtsız** rolü ${rol} olarak ayarlandı.`)
+            if (roller.size < 1 || roller.size > 3) return message.reply(`Lütfen **Kayıtsız** rollerini 1 ile 3 arasında etiketleyiniz.`);
+
+            const rollerArray = Array.from(roller.values());
+            const rollerIDs = rollerArray.map(role => role.id);
+            db.set(`kayıt_kayıtsız_rol_${message.guild.id}`, rollerIDs)
+            message.reply(`Başarılı bir şekilde **Kayıtsız** rolü ${rollerArray.join(", ")} olarak ayarlandı.`)
         }
 
         if (args[0] === "kayıtsız-isim") {

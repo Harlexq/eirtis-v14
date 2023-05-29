@@ -17,15 +17,15 @@ module.exports = async () => {
         });
     }, 5000);
 
-    client.guilds.cache.forEach((guild) => {
-        if (guild.memberCount < 20) {
-            guild.leave().then(() => {
-                console.log(`Üye sayısı 20'den az olduğu için ${guild.name}'den ayrıldı.`);
-            }).catch((error) => {
-                console.error(`${guild.name}'den ayrılma hatası:`, error);
-            });
-        }
-    });
+    // client.guilds.cache.forEach((guild) => {
+    //     if (guild.memberCount < 20) {
+    //         guild.leave().then(() => {
+    //             console.log(`Üye sayısı 20'den az olduğu için ${guild.name}'den ayrıldı.`);
+    //         }).catch((error) => {
+    //             console.error(`${guild.name}'den ayrılma hatası:`, error);
+    //         });
+    //     }
+    // });
 
     const kulsayi = []
     client.guilds.cache.forEach((item, i) => {

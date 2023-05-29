@@ -33,7 +33,7 @@ module.exports = {
 
         await role.setColor(color);
 
-        await interaction.channel.send({
+        await interaction.reply({
             content:
                 `${role} rolünün rengi başarıyla \`${color}\` olarak değiştirildi.`
         });

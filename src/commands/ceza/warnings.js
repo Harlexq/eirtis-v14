@@ -5,7 +5,7 @@ module.exports = {
         conf: {
                 aliases: ["uyarılar", "uyarılarım"],
                 name: "warnings",
-                help: "Sizin Veya Etiketlenen Kullanıcının Uyarılarını Listeler",
+                help: "Uyarıları Listeler",
                 category: "ceza",
         },
 

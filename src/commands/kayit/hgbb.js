@@ -5,7 +5,7 @@ module.exports = {
     conf: {
         aliases: ["hg-bb"],
         name: "hgbb",
-        help: "Sunucuya Giren Ve Çıkan Kişilerin Gösterileceği Kanalı Seçer",
+        help: "Giren/Çıkan Kişilerin Loglanacağı Kanalı Seçer",
         category: "kayıt",
     },
 

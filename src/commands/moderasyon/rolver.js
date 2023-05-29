@@ -4,7 +4,7 @@ module.exports = {
     conf: {
         aliases: ["rol-ver"],
         name: "rolver",
-        help: "Etiketlediğiniz Kullanıcıdan Etiketlediğiniz Rolü Verir",
+        help: "Kullanıcıya Etiketlediğiniz Rolü Verir",
         category: "moderasyon",
     },
 

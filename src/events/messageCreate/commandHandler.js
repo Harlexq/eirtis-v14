@@ -28,7 +28,6 @@ module.exports = async (message) => {
                 });
         }
     }
-
     userCooldowns.set(commandName, now);
     cooldowns.set(message.author.id, userCooldowns);
 
@@ -38,7 +37,7 @@ module.exports = async (message) => {
         .setThumbnail(message.author.avatarURL({ dynamic: true, size: 2048 }))
         .setTimestamp()
         .setFooter({ text: message.author.tag, iconURL: message.author.avatarURL({ dynamic: true, size: 2048 }) });
-    command.run(client, message, args, embed);
+    command.run(client, message, args, embed, prefix);
 }
 
 module.exports.conf = {

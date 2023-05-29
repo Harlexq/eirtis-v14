@@ -5,11 +5,11 @@ module.exports = {
     conf: {
         aliases: ["setprefix"],
         name: "prefix",
-        help: "Sunucu için özel bir prefix ayarlar",
+        help: "Sunucu İçin Çzel Bir Prefix Ayarlar",
         category: "bot"
     },
 
-    run: async (client, message, args, embed) => {
+    run: async (client, message, args, embed, prefix) => {
         const rows = new ActionRowBuilder()
             .addComponents(
                 new ButtonBuilder()
@@ -26,7 +26,7 @@ module.exports = {
 
         if (!message.member.permissions.has(PermissionsBitField.Flags.Administrator)) return message.reply("Bu komutu kullanabilmek için **Yönetici** iznine sahip olmalısın!");
 
-        if (!args[0]) return message.reply(`Doğru Kullanımı; **e.prefix ayarla <yeniprefix>/sıfırla**`)
+        if (!args[0]) return message.reply(`Doğru Kullanımı; **${prefix}prefix ayarla <yeniprefix>/sıfırla**`)
 
         if (args[0] === "ayarla") {
 

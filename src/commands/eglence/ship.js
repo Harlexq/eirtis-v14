@@ -1,16 +1,17 @@
-const { AttachmentBuilder, EmbedBuilder } = require("discord.js");
+const { AttachmentBuilder, EmbedBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle } = require("discord.js");
 const Canvas = require("canvas");
 
 module.exports = {
     conf: {
         aliases: ["ship"],
         name: "ship",
-        help: "Etiketlediğiniz Veya Sunucudaki Herhangi Biri İle Ship Ölçer",
+        help: "Sunucudaki Kullanıcıyla Shipler",
         category: "eglence",
     },
 
     run: async (client, message, args, embed) => {
         if (!message.guild) return;
+
         let user = message.mentions.users.first();
         if (!user) {
             const members = message.guild.members.cache.filter(
@@ -57,11 +58,20 @@ module.exports = {
         ctx.fillText(`${percentage}%`, 295, 175);
 
         const loveMessages = [
-            `**<@${message.author.id}>** ve **<@${user.id}>** arasındaki aşk **%${percentage}** ${percentage >= 50 ? "💖" : "💔"}`,
-            `**<@${message.author.id}>** ve **<@${user.id}>** arasında **%${percentage}** aşk var, ne romantik! ${percentage >= 50 ? "💕" : "💔"}`,
-            `**<@${message.author.id}>** ve **<@${user.id}>** birbirlerine **%${percentage}** aşık olmuşlar! ${percentage >= 50 ? "💘" : "💔"}`,
-            `Bugün **<@${message.author.id}>** ve **<@${user.id}>** arasındaki aşk **%${percentage}** Yarın ne olacağına bakalım... ${percentage >= 50 ? "😍" : "😢"}`,
+            `**${message.author}** ve **${user}** arasındaki aşk **%${percentage}** ${percentage >= 50 ? "💖" : "💔"}`,
+            `**${message.author}** ve **${user}** arasında **%${percentage}** aşk var, ne romantik! ${percentage >= 50 ? "💕" : "💔"}`,
+            `**${message.author}** ve **${user}** birbirlerine **%${percentage}** aşık olmuşlar! ${percentage >= 50 ? "💘" : "💔"}`,
+            `Bugün **${message.author}** ve **${user}** arasındaki aşk **%${percentage}** Yarın ne olacağına bakalım... ${percentage >= 50 ? "😍" : "😢"}`,
         ];
+
+        let shipbtn = new ActionRowBuilder()
+            .addComponents(
+                new ButtonBuilder()
+                    .setStyle(ButtonStyle.Link)
+                    .setLabel(`Tanış`)
+                    .setEmoji("1028811861669445682")
+                    .setURL(`https://discord.com/users/${user.id}`)
+            );
 
         const randomLoveMessage = loveMessages[Math.floor(Math.random() * loveMessages.length)];
 
@@ -76,7 +86,7 @@ module.exports = {
             .setFooter({ text: message.author.tag, iconURL: message.author.avatarURL({ dynamic: true, size: 2048 }) })
 
         message.reply({
-            embeds: [shipembed], files: [attachment]
-        });
+            embeds: [shipembed], files: [attachment], components: [shipbtn]
+        })
     },
 };

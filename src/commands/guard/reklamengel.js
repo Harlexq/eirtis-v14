@@ -6,7 +6,7 @@ module.exports = {
     conf: {
         aliases: ["reklam-engel"],
         name: "reklamengel",
-        help: "Sunucudaki Reklam Engel Sistemini Açar/Kapatır",
+        help: "Reklam Engel Sistemini Açar/Kapatır",
         category: "guard",
     },
 

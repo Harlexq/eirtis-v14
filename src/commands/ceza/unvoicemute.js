@@ -6,7 +6,7 @@ module.exports = {
     conf: {
         aliases: ["unvoice-mute"],
         name: "unvoicemute",
-        help: "Etiketlenen Kullanıcının Voice Mutesini Kaldırır",
+        help: "Kullanıcının Voice Mutesini Kaldırır",
         category: "ceza",
     },
 
